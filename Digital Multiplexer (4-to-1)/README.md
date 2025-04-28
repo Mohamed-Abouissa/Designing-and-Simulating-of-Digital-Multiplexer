@@ -117,9 +117,7 @@ To describe the behavior of the 4-to-1 MUX in a more formal way, we derive the l
 
 The logic expression for the 4-to-1 multiplexer is derived from the following truth table:
 
-$$
-Y = (\overline{S1} \cdot \overline{S0} \cdot D0) + (\overline{S1} \cdot S0 \cdot D1) + (S1 \cdot \overline{S0} \cdot D2) + (S1 \cdot S0 \cdot D3)
-$$
+    Y = (¬S1 ⋅ ¬S0 ⋅ D0) + (¬S1 ⋅ S0 ⋅ D1) + (S1 ⋅ ¬S0 ⋅ D2) + (S1 ⋅ S0 ⋅ D3)
 
 This equation shows how each of the inputs (D0, D1, D2, D3) is selected based on the values of S1 and S0:
 
@@ -439,7 +437,7 @@ Thus, only three 2-to-1 MUXes are needed to implement the 4-to-1 MUX structure.
 
 Each 2-to-1 MUX follows the basic logic:
 
-    Y = (NOT S AND A) OR (S AND B)  
+    Y = (¬S · A) + (S · B) 
 
 where:
 - S is the select line.
@@ -450,15 +448,15 @@ Instead of using AND, OR, and NOT gates directly, the logic must be implemented 
 
 **AND using NAND:**
 
-    A AND B = NOT (NOT (A AND B))
+    A · B = ¬(¬(A · B))
 
 **OR using NAND (via DeMorgan’s law):**
 
-    A OR B = NOT (NOT A AND NOT B)
+    A + B = ¬(¬A · ¬B)
 
 **NOT using NAND:**
 
-    NOT A = A NAND A
+    ¬A = A NAND A
 
 At the full circuit level, the diagram shows:
 
