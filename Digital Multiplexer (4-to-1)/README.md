@@ -355,10 +355,42 @@ begin
 
 end;
 ```
+</details>
+
+<details>
+	<summary>Waveform Analysis and Interpretation</summary>
+	<br>
+
+The simulation waveform obtained from ModelSim demonstrates the correct functionality of the designed 4-to-1 multi- plexer. In the waveform, several signals were monitored, including the input switches (SW), the LED indicators (LEDR), and the outputs connected to the seven-segment displays (HEX7, HEX6, HEX5, HEX4, and HEX0). Throughout the simulation, the behavior of the circuit was consistent with the expected operation of a 4-to-1 multiplexer.
+
+<div align="center">
+  <img src="Pics/5.png" alt="Waveform" width="1050" height="500">
+</div>
+<br>
+
+As the selection inputs (Sel) changed, the output consistently switched between the four input vectors (U, V, W, and X). Each change in the selector value resulted in the corresponding input being displayed on the output without any noticeable delay or instability. For example, when the selector input was ”00,” the output corresponded to input U. When it was ”01,” the output switched to V, and similarly, ”10” and ”11” correctly selected W and X, respectively. The seven- segment displays accurately reflected these changes, verifying that the data path and display decoding modules functioned correctly.
+
+The analysis of the waveform reveals that no glitches, undefined states, or high-impedance conditions were observed during the transitions. The outputs transitioned smoothly from one input to another in response to changes in the selection lines. Furthermore, the seven-segment displays updated immediately and correctly, indicating that the output logic and display decoding were properly synchronized with the multiplexer output.
+
+In conclusion, the simulation results validate the functionality of the multiplexer design. The correct selection of inputs based on the selector lines, the proper display of outputs on the seven-segment displays, and the absence of any errors during operation all confirm that the VHDL implementation is robust and operates as intended.
 
 </details>
 
+<details>
+	<summary>FPGA Hardware Implementation</summary>
+	<br>
 
+After successful simulation and verification in ModelSim, the VHDL design was implemented on the DE2-115 FPGA development board. The compiled design was downloaded onto the board using the Intel Quartus Prime software. Upon programming the FPGA, the physical testing of the circuit confirmed the correct functionality of the design. 
+
+As shown in the figure, the input switches were used to select different inputs for the 4-to-1 multiplexer, and the results were displayed on the seven-segment displays. The displayed outputs correctly corresponded to the input values based on the selection lines. In particular, different combinations of the switch settings resulted in accurate updates on the seven-segment displays, confirming that the multiplexer selection and data paths were operating correctly in hardware, just as they did during simulation.
+
+Moreover, the LEDs on the board illuminated according to the active input and output conditions, providing additional visual feedback of the circuit’s functionality. The successful implementation on the DE2-115 board further validated the correctness and robustness of the VHDL design, demonstrating that the circuit not only works in simulation but also performs reliably when deployed to real FPGA hardware.
+
+<div align="center">
+  <img src="Pics/20.png" alt="Waveform" width="500" height="500"><img src="Pics/21.png" alt="Waveform" width="500" height="500">
+</div>
+ 
+</details>
 
 
 
