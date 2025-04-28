@@ -23,7 +23,7 @@ The DE1-115 board's rich feature set was crucial to the success of our work. It 
 In order to develop, simulate, and program our designs onto the DE1-115 FPGA board, we used Intel Quartus Prime software. Quartus Prime is a comprehensive FPGA design environment that provides all the necessary tools for hardware description language (HDL) design, synthesis, simulation, timing analysis, and programming. It supports both VHDL and Verilog designs, offering powerful features like schematic entry, IP integration, and real-time compilation feedback. Using Quartus, we were able to write, compile, simulate, and debug our HDL code, and then configure the DE1-115 board directly through the programming tool. The software also allowed us to easily manage pin assignments and monitor resource usage, which helped optimize our design for the FPGA’s capabilities.
 
 <div align="center">
-  <img src="Photos/Quartus.png" alt="Digital Multiplexer Diagram" width="1050" height="600">
+  <img src="Photos/Quartus.png" alt="Digital Multiplexer Diagram" width="1050" height="500">
 </div>
 <br>
 
