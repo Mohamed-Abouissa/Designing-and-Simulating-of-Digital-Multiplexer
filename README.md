@@ -1,3 +1,8 @@
+<div align="center">
+  
 # Designing-and-Simulating-of-Digital-Multiplexer
+</div>
 
 This project presents the design and simulation of a 4-to-1 digital multiplexer using only 2-to-1 inverting multiplexers constructed from NAND and NOT gates at the transistor level. A 2-to-1 MUX was first built using three NAND gates and one NOT gate, and then used as a module to create the complete 4-to-1 multiplexer. The project involved deriving the logic expressions, creating truth tables, implementing VHDL code, drawing transistor- level circuits, and verifying the functionality through simulations. Special care was taken to ensure correct selection line behavior and accurate transistor connections. The final design requires 42 transistors and successfully operates as intended, demonstrating a modular, efficient, and expandable approach to digital system design.
+
+
