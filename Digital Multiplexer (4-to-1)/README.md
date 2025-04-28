@@ -478,6 +478,7 @@ Now, using this 2-to-1 multiplexer design, we can construct the 4-to-1 multiplex
   <img src="Pics/7.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=1 S=11" /> <img src="Pics/8.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=00"/>
   <img src="Pics/9.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=01" /> <img src="Pics/10.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=11"/>  
 </p>
+
 ---
 </details>
 
@@ -516,12 +517,55 @@ The resulting transistor-level diagram of the 2-to-1 and 4-to-1 multiplexer cons
   <img src="Pics/12.png" style="width: 49%; height: 300px;" title="A=0 B=0 S=0 (2-to-1 MUX)" /> <img src="Pics/13.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0 (2-to-1 MUX)"/>
   <img src="Pics/14.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=0 S=10 (4-to-1 MUX)" /> <img src="Pics/15.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=0 S=11 (4-to-1 MUX)"/>  
 </p>
+
 ---
 </details>
 
+## Transistor-Level Analysis
+
+Understanding the operation of multiplexers at the transistor level provides critical insight into how digital logic is physically implemented in hardware. Instead of treating logic gates as abstract black boxes, this section explores how basic components-PMOS and NMOS transistors-are combined to create functional logic circuits like NAND and NOT gates, which in turn are used to build a 2-to-1 multiplexer (MUX).
+
+In this section, we first analyze the transistor-level operation of a 2-to-1 MUX, detailing how the select line controls the flow of data between the inputs and output by switching specific transistors on or off. We then examine the output behavior relative to different input combinations and visualize how the circuit responds under various conditions through a series of transistor-level diagrams. This foundation lays the groundwork for constructing larger and more complex multiplexers, such as the 4-to-1 MUX, by combining multiple 2-to-1 MUX structures.
+
+<details>
+<summary>Transistor-Level Operation of a 2-to-1 MUX</summary>
+<br>
+
+---
+A 2-to-1 multiplexer (MUX) at the transistor level is constructed using PMOS and NMOS transistors, which function as electronic switches. In this design, the select line (S) determines which of the two data inputs (D0 or D1) will be passed to the output. When designing with NAND and NOT gates, the control of the MUX is achieved by manipulating these
+transistors to either connect or disconnect the data inputs.
+
+As you can see below, I used an inverter (NOT gate) for the select line (S) and combined it with three NAND gates to build the 2-to-1 MUX. These gates are made from transistors, specifically PMOS and NMOS types. The inverter is used to invert the select line (S), allowing the system to choose between D0 and D1 based on the value of the select line. The three NAND gates are configured to control the flow of the data inputs, using transistor logic to perform the multiplexing function.
+
+The PMOS transistors, which are connected to the positive supply voltage (VDD), conduct when their gate voltage is low (0), and they block current flow when their gate voltage is high (1). On the other hand, NMOS transistors, connected to ground (GND), conduct when their gate voltage is high (1) and block current when their gate voltage is low (0). The combination of these transistors forms the switching mechanism, where either D0 or D1 is passed to the output based on the state of the select line (S).
+
+When S = 0, the path for D0 is activated, allowing D0 to pass through to the output, while the D1 path is blocked. Conversely, when S = 1, the path for D1 is activated, and D0 is blocked from reaching the output. This switching behavior is key to the operation of the 2-to-1 MUX.
+
+---
+</details>
+
+<details>
+<summary>Output Behavior with Respect to Inputs</summary>
+<br>
+
+---
+The output of a 2-to-1 MUX depends directly on the values of the inputs D0 and D1 and the select line S. The truth table for this configuration clearly demonstrates that when S = 0, the output (Y) follows D0, and when S = 1, the output follows D1. This functionality is achieved by the correct switching of the PMOS and NMOS transistors. The PMOS and NMOS transistors are arranged so that the corresponding input (either D0 or D1) is connected to the output, while the other is blocked.
+
+For example, when S = 0, the PMOS transistor connected to D0 is turned on, allowing D0 to pass to the output. Simul- taneously, the NMOS transistor connected to D1 is turned off, blocking D1. When S = 1, the behavior reverses, with the PMOS transistor connected to D1 being turned on, while the NMOS connected to D0 is turned off, allowing D1 to pass to the output instead.
+
+To visually demonstrate this behavior, I have included four photos, each representing the output behavior for the two input values (D0, D1) and the select line (S) for both cases. These photos illustrate the state of the output (Y) for the following configurations:
+
+- Case 1: S = 0, D0 = 0, D1 = 0
+- Case 2: S = 0, D0 = 1, D1 = 0
+- Case 3: S = 1, D0 = 0, D1 = 1
+- Case 4: S = 1, D0 = 1, D1 = 1
+
+<p align="center">
+  <img src="Pics/16.png" style="width: 49%; height: 300px;" title="A=0 B=0 S=0 (2-to-1 MUX)" /> <img src="Pics/17.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0 (2-to-1 MUX)"/>
+  <img src="Pics/18.png" style="width: 49%; height: 300px;" title="A=0 B=1 S=1 (2-to-1 MUX)" /> <img src="Pics/19.png" style="width: 49%; height: 300px;" title="A=1 B=1 S=1 (2-to-1 MUX)"/>  
+</p>
+
+Each of these photos shows the corresponding transistor-level operation and verifies how the select line (S) controls which data input (D0 or D1) is passed to the output. This transistor-level analysis ensures that the 2-to-1 MUX operates as intended, passing one of the two data inputs to the output based on the select line. By understanding the operation of the 2-to-1 MUX at the transistor level, we can extend this design to build more complex multiplexers, such as the 4-to-1 MUX, by cascading multiple 2-to-1 MUXes.
 
 
-
-
-
-
+</details>
