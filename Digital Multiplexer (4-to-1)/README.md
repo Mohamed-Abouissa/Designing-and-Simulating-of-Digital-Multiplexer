@@ -396,6 +396,60 @@ Moreover, the LEDs on the board illuminated according to the active input and ou
 
 ## Circuit Design
 
+In this section, the complete design process of a 4-to-1 multiplexer (MUX) is presented, starting from the logic gate level and extending to the transistor level. The goal is to demonstrate how a complex digital component like a multiplexer can be systematically built using only basic logic elements, specifically NAND and NOT gates, which are fundamental in digital electronics.
+
+First, the full logic circuit diagram of the 4-to-1 MUX is developed by constructing 2-to-1 multiplexers with NAND and NOT gates, showcasing how universal gates can be employed to realize any digital function. Following this, the design is refined further by translating the logic gates into detailed CMOS transistor-level circuits using PMOS and NMOS transistors.
+
+This comprehensive approach not only highlights the hierarchical design methodology but also provides deeper insight into the underlying hardware realization of digital systems.
+
+<details>
+	<summary>Full Logic Circuit Diagram Using Logic Gates</summary>
+	<br>
+
+In this project, the 4-to-1 multiplexer (MUX) is designed by using 2-to-1 multiplexer building blocks. Each 2-to-1  MUX itself is constructed solely with NAND and NOT gates. This design choice reflects a fundamental and practical approach to  digital circuit design, as NAND gates are known to be universal gates, capable of forming any logic function when combined appropriately.
+
+The basic concept of a 4-to-1 MUX is to select one of four data inputs (D0, D1, D2, D3) based on the binary values of two select inputs (S1 and S0). The selection mechanism can be thought of as a two-stage hierarchy:
+
+- **First stage**: Two 2-to-1 MUXs are used to select between pairs (I0, I1) and (I2, I3) based on the lower-order select line, S0.
+- **Second stage**: A final 2-to-1 MUX is used to choose between the outputs of the first stage, based on the higher-order select line, S1.
+
+Thus, only three 2-to-1 MUXs are needed to implement the 4-to-1 MUX structure. Each 2-to-1 MUX follows the basic logic:
+
+
+$$
+Y = (\overline{S} \cdot A) + (S \cdot B)
+$$
+
+where:
+- S is the select line.
+- A and B are the two data inputs.
+- Y is the output.
+
+However, instead of using AND, OR, and NOT gates directly, the logic must be implemented only with NAND and NOT gates. Therefore, each basic logic operation (AND, OR) must be rewritten using NAND equivalents:
+
+AND is implemented as double NAND:
+
+$$
+A \cdot B = \overline{\overline{A \cdot B}}
+$$
+
+OR is implemented by DeMorgan's law using NAND:
+
+$$
+A + B = \overline{(\overline{A} \cdot \overline{B})}
+$$
+
+NOT is implemented simply by tying both inputs of a NAND gate together. Using these transformations, each 2-to-1 multiplexer is carefully reconstructed using only NAND and NOT gates. At the full circuit level, the diagram shows:
+
+- Two 2-to-1 NAND-based multiplexers taking inputs (D0, D1) and (D2, D3) selected by S0.
+- Their outputs feeding into a third 2-to-1 NAND-based multiplexer controlled by S1.
+- The final output Y representing the selected input according to the two select lines.
+
+This approach not only satisfies the project constraints but also trains the designer to think flexibly using universal gates. The following photo shows the Gate-level implementation of the 4-to-1 multiplexer, constructed entirely using NAND and NOT gates.
+ 
+</details>
+
+
 
 
 
