@@ -151,6 +151,124 @@ By examining this table, we can easily visualize how the selection lines determi
 
 ## VHDL Implementation
 
+This section presents the VHDL implementation and simulation of a 4-to-1 multiplexer built using basic logic gates. The design emphasizes modular construction by combining two levels of 2-to-1 multiplexers, each created with NAND and NOT gates, to achieve the desired 4-to-1 selection functionality. The VHDL code defines the system structure, input/output behavior, and integration with 7-segment displays for visual verification. Additionally, a simulation is performed using a testbench to validate the functionality of the multiplexer under different input and selection conditions. This comprehensive implementation demonstrates both the theoretical design and practical verification of digital logic circuits using VHDL.
+
+<details>
+  <summary>VHDL Code for the 4-to-1 Multiplexer</summary>
+  <br>
+
+In this section, the VHDL code implements a 4-to-1 multiplexer (MUX) using two levels of 2-to-1 multiplexers (MUX1, MUX2, and MUX3), all constructed with NAND gates and NOT gates. The multiplexer selects one of four inputs based on two selection lines. Below is a breakdown of the key components:
+
+- **Entity Declaration**: The part1 entity defines the input and output ports. The input SW is an 18-bit switch vector used to control the multiplexer, and the outputs are connected to LEDs and 7-segment displays (LEDR, LEDG, HEX7, HEX6, HEX5, HEX4, HEX0).
+  
+- **Signal Definitions**: Intermediate signals such as U, V, W, X, M, M1, and M2 are declared. These signals hold portions of the input vector SW and are used for multiplexing logic. The selector signals Sel determine the multiplexer’s behavior.
+  
+- **Multiplexer Logic**: The first level contains two 2-to-1 multiplexers (MUX1 and MUX2) that select between the input groups U, V and W, X based on the most significant selection bit Sel(1). The second level contains a third 2-to-1 multiplexer (MUX3) that selects between the outputs of MUX1 and MUX2 based on the least significant selection bit Sel(0).
+  
+- **7-Segment Display Output**: The selected values from the multiplexer (M) are displayed on 7-segment displays through the my7seg component. This component takes a 4-bit input and converts it into a 7-segment display pattern.
+
+This code effectively demonstrates the design of a 4-to-1 multiplexer using NAND gates and NOT gates to control the flow of data.
+
+```VHDL
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+ 
+ENTITY part1 IS 
+   PORT ( SW   : IN  STD_LOGIC_VECTOR(17 DOWNTO 0);    
+          LEDR : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);   
+			    LEDG: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+			    HEX7, HEX6, HEX5, HEX4, HEX0 : OUT STD_LOGIC_VECTOR(0 TO 6));
+END part1;
+ 
+ARCHITECTURE Structure OF part1 IS 
+   COMPONENT my7seg
+      PORT ( INPUT : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);  
+             OUTPUT : OUT STD_LOGIC_VECTOR(0 TO 6));  
+   END COMPONENT;
+ 
+  SIGNAL U, V, W, X, M : STD_LOGIC_VECTOR(3 DOWNTO 0); 
+	SIGNAL M1, M2 : STD_LOGIC_VECTOR(3 DOWNTO 0);	
+	SIGNAL Sel : STD_LOGIC_VECTOR(1 DOWNTO 0);  
+ 
+BEGIN
+   U <= SW(3 DOWNTO 0); 
+   V <= SW(7 DOWNTO 4);
+   W <= SW(11 DOWNTO 8);
+   X <= SW(15 DOWNTO 12);
+   Sel <= SW (17 DOWNTO 16);
+	
+	LEDR(3 DOWNTO 0) <= U;
+	LEDR(7 DOWNTO 4) <= V;
+	LEDR(11 DOWNTO 8) <= W;
+	LEDR(15 DOWNTO 12) <= X;
+	LEDG(1 DOWNTO 0) <= Sel;
+	
+																					
+																					
+  M1(0) <= NOT ( (NOT (U(0) NAND (NOT Sel(1)))) NAND (NOT (V(0) NAND Sel(1))) );
+	M1(1) <= NOT ( (NOT (U(1) NAND (NOT Sel(1)))) NAND (NOT (V(1) NAND Sel(1))) );
+	M1(2) <= NOT ( (NOT (U(2) NAND (NOT Sel(1)))) NAND (NOT (V(2) NAND Sel(1))) );
+	M1(3) <= NOT ( (NOT (U(3) NAND (NOT Sel(1)))) NAND (NOT (V(3) NAND Sel(1))) );
+	
+																					
+  M2(0) <= NOT ( (NOT (W(0) NAND (NOT Sel(1)))) NAND (NOT (X(0) NAND Sel(1))) );
+	M2(1) <= NOT ( (NOT (W(1) NAND (NOT Sel(1)))) NAND (NOT (X(1) NAND Sel(1))) );
+	M2(2) <= NOT ( (NOT (W(2) NAND (NOT Sel(1)))) NAND (NOT (X(2) NAND Sel(1))) );
+	M2(3) <= NOT ( (NOT (W(3) NAND (NOT Sel(1)))) NAND (NOT (X(3) NAND Sel(1))) );
+	
+																					
+  M(0) <= NOT ( (NOT (M1(0) NAND (NOT Sel(0)))) NAND (NOT (M2(0) NAND Sel(0))) );
+	M(1) <= NOT ( (NOT (M1(1) NAND (NOT Sel(0)))) NAND (NOT (M2(1) NAND Sel(0))) );
+	M(2) <= NOT ( (NOT (M1(2) NAND (NOT Sel(0)))) NAND (NOT (M2(2) NAND Sel(0))) );
+	M(3) <= NOT ( (NOT (M1(3) NAND (NOT Sel(0)))) NAND (NOT (M2(3) NAND Sel(0))) );
+ 
+	INPUT1: my7seg PORT MAP (SW(3 DOWNTO 0), HEX7);
+  INPUT2: my7seg PORT MAP (SW(7 DOWNTO 4), HEX6);
+	INPUT3: my7seg PORT MAP (SW(11 DOWNTO 8), HEX5);
+	INPUT4: my7seg PORT MAP (SW(15 DOWNTO 12), HEX4);
+	INPUT5: my7seg PORT MAP (M(3 DOWNTO 0), HEX0);
+	
+END Structure;
+ 
+-- ----------------------------------------------------------------------------------------------------
+ 
+LIBRARY ieee;                  
+USE ieee.std_logic_1164.all;
+ENTITY my7seg IS                             
+ 
+   PORT ( INPUT : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);    
+          OUTPUT : OUT STD_LOGIC_VECTOR(0 TO 6));       
+END my7seg;
+ 
+ARCHITECTURE Structure OF my7seg IS  
+BEGIN         
+PROCESS (INPUT)
+   BEGIN
+      CASE INPUT IS
+         WHEN "0000" => OUTPUT <= "0000001";
+         WHEN "0001" => OUTPUT <= "1001111";
+         WHEN "0010" => OUTPUT <= "0010010";
+         WHEN "0011" => OUTPUT <= "0000110";
+         WHEN "0100" => OUTPUT <= "1001100";
+         WHEN "0101" => OUTPUT <= "0100100";
+         WHEN "0110" => OUTPUT <= "0100000";
+         WHEN "0111" => OUTPUT <= "0001111";
+         WHEN "1000" => OUTPUT <= "0000000";
+         WHEN "1001" => OUTPUT <= "0000100";
+         WHEN "1010" => OUTPUT <= "0001000";
+         WHEN "1011" => OUTPUT <= "1100000";
+         WHEN "1100" => OUTPUT <= "0110001";
+         WHEN "1101" => OUTPUT <= "1000010";
+         WHEN "1110" => OUTPUT <= "0110000";
+         WHEN OTHERS => OUTPUT <= "0111000";
+      END CASE;
+   END PROCESS;
+END Structure;
+
+```
+
+</details>
+
 
 
 
