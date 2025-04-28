@@ -29,7 +29,7 @@ In order to develop, simulate, and program our designs onto the DE1-115 FPGA boa
 
 Using Intel Quartus Prime was critical to the success of our project. It provided a seamless workflow from writing HDL code to verifying the functionality through simulation, and finally downloading the configuration file onto the FPGA. Its built-in analysis and synthesis tools helped us quickly identify and correct errors, ensuring that our final design met timing and resource constraints. Additionally, the straightforward programming interface allowed us to configure the DE1-115 board efficiently, enabling rapid prototyping and testing throughout the development process.
 
-## Multisim
+## NI Multisim 14.3
 
 As part of the project, we also used NI Multisim software to design and simulate circuits at the transistor level before implementing them on the FPGA. Multisim is a powerful electronic schematic capture and simulation environment widely used for designing, analyzing, and validating analog, digital, and mixed-signal circuits. It provides a comprehensive library of real-world components, including BJTs, MOSFETs, diodes, and passive elements, enabling us to build accurate transistor-level models of the circuits we planned to implement. Through Multisim’s simulation capabilities, we were able to verify the behavior of our designs, measure critical parameters, and optimize the circuits before moving to hardware implementation. This step was essential to ensure functionality and performance while minimizing errors during the FPGA programming phase.
 
