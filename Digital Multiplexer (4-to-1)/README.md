@@ -386,11 +386,17 @@ As shown in the figure, the input switches were used to select different inputs 
 
 Moreover, the LEDs on the board illuminated according to the active input and output conditions, providing additional visual feedback of the circuit’s functionality. The successful implementation on the DE2-115 board further validated the correctness and robustness of the VHDL design, demonstrating that the circuit not only works in simulation but also performs reliably when deployed to real FPGA hardware.
 
-<div align="center">
-  <img src="Pics/20.png" alt="Waveform" width="500" height="500"><img src="Pics/21.png" alt="Waveform" width="500" height="500">
-</div>
+<p align="center">
+  <img src="Pics/20.png" style="width: 49%; height: 300px;" title="A=0000 B=0000 C=0000 D=0000 S=00" /> <img src="Pics/21.png" style="width: 49%; height: 300px;" title="A=0011 B=1110 C=1010 D=0001 S=11"/>  
+  <img src="Pics/22.png" style="width: 49%; height: 300px;" title="A=1011 B=0110 C=1000 D=0100 S=00" /> <img src="Pics/23.png" style="width: 49%; height: 300px;" title="A=1011 B=0110 C=1000 D=0100 S=10"/>
+  <img src="Pics/24.png" style="width: 49%; height: 300px;" title="A=0011 B=1110 C=1010 D=0001 S=10" /> <img src="Pics/25.png" style="width: 49%; height: 300px;" title="A=0011 B=1110 C=1010 D=0001 S=00"/>
+</p>
  
 </details>
+
+## Circuit Design
+
+
 
 
 
