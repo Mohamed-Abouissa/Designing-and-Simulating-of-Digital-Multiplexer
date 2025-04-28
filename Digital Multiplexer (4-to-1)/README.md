@@ -176,8 +176,8 @@ USE ieee.std_logic_1164.all;
 ENTITY part1 IS 
    PORT ( SW   : IN  STD_LOGIC_VECTOR(17 DOWNTO 0);    
           LEDR : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);   
-			    LEDG: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
-			    HEX7, HEX6, HEX5, HEX4, HEX0 : OUT STD_LOGIC_VECTOR(0 TO 6));
+	  LEDG: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+ 	  HEX7, HEX6, HEX5, HEX4, HEX0 : OUT STD_LOGIC_VECTOR(0 TO 6));
 END part1;
  
 ARCHITECTURE Structure OF part1 IS 
@@ -187,8 +187,8 @@ ARCHITECTURE Structure OF part1 IS
    END COMPONENT;
  
   SIGNAL U, V, W, X, M : STD_LOGIC_VECTOR(3 DOWNTO 0); 
-	SIGNAL M1, M2 : STD_LOGIC_VECTOR(3 DOWNTO 0);	
-	SIGNAL Sel : STD_LOGIC_VECTOR(1 DOWNTO 0);  
+  SIGNAL M1, M2 : STD_LOGIC_VECTOR(3 DOWNTO 0);	
+  SIGNAL Sel : STD_LOGIC_VECTOR(1 DOWNTO 0);  
  
 BEGIN
    U <= SW(3 DOWNTO 0); 
@@ -197,33 +197,33 @@ BEGIN
    X <= SW(15 DOWNTO 12);
    Sel <= SW (17 DOWNTO 16);
 	
-	LEDR(3 DOWNTO 0) <= U;
-	LEDR(7 DOWNTO 4) <= V;
-	LEDR(11 DOWNTO 8) <= W;
-	LEDR(15 DOWNTO 12) <= X;
-	LEDG(1 DOWNTO 0) <= Sel;
+   LEDR(3 DOWNTO 0) <= U;
+   LEDR(7 DOWNTO 4) <= V;
+   LEDR(11 DOWNTO 8) <= W;
+   LEDR(15 DOWNTO 12) <= X;
+   LEDG(1 DOWNTO 0) <= Sel;
 	
 																					
 																					
-  M1(0) <= NOT ( (NOT (U(0) NAND (NOT Sel(1)))) NAND (NOT (V(0) NAND Sel(1))) );
+  	M1(0) <= NOT ( (NOT (U(0) NAND (NOT Sel(1)))) NAND (NOT (V(0) NAND Sel(1))) );
 	M1(1) <= NOT ( (NOT (U(1) NAND (NOT Sel(1)))) NAND (NOT (V(1) NAND Sel(1))) );
 	M1(2) <= NOT ( (NOT (U(2) NAND (NOT Sel(1)))) NAND (NOT (V(2) NAND Sel(1))) );
 	M1(3) <= NOT ( (NOT (U(3) NAND (NOT Sel(1)))) NAND (NOT (V(3) NAND Sel(1))) );
 	
 																					
-  M2(0) <= NOT ( (NOT (W(0) NAND (NOT Sel(1)))) NAND (NOT (X(0) NAND Sel(1))) );
+  	M2(0) <= NOT ( (NOT (W(0) NAND (NOT Sel(1)))) NAND (NOT (X(0) NAND Sel(1))) );
 	M2(1) <= NOT ( (NOT (W(1) NAND (NOT Sel(1)))) NAND (NOT (X(1) NAND Sel(1))) );
 	M2(2) <= NOT ( (NOT (W(2) NAND (NOT Sel(1)))) NAND (NOT (X(2) NAND Sel(1))) );
 	M2(3) <= NOT ( (NOT (W(3) NAND (NOT Sel(1)))) NAND (NOT (X(3) NAND Sel(1))) );
 	
 																					
-  M(0) <= NOT ( (NOT (M1(0) NAND (NOT Sel(0)))) NAND (NOT (M2(0) NAND Sel(0))) );
+  	M(0) <= NOT ( (NOT (M1(0) NAND (NOT Sel(0)))) NAND (NOT (M2(0) NAND Sel(0))) );
 	M(1) <= NOT ( (NOT (M1(1) NAND (NOT Sel(0)))) NAND (NOT (M2(1) NAND Sel(0))) );
 	M(2) <= NOT ( (NOT (M1(2) NAND (NOT Sel(0)))) NAND (NOT (M2(2) NAND Sel(0))) );
 	M(3) <= NOT ( (NOT (M1(3) NAND (NOT Sel(0)))) NAND (NOT (M2(3) NAND Sel(0))) );
  
 	INPUT1: my7seg PORT MAP (SW(3 DOWNTO 0), HEX7);
-  INPUT2: my7seg PORT MAP (SW(7 DOWNTO 4), HEX6);
+  	INPUT2: my7seg PORT MAP (SW(7 DOWNTO 4), HEX6);
 	INPUT3: my7seg PORT MAP (SW(11 DOWNTO 8), HEX5);
 	INPUT4: my7seg PORT MAP (SW(15 DOWNTO 12), HEX4);
 	INPUT5: my7seg PORT MAP (M(3 DOWNTO 0), HEX0);
@@ -266,8 +266,99 @@ PROCESS (INPUT)
 END Structure;
 
 ```
+</details>
+
+<details>
+	<summary>Simulation and Functional Verification</summary>
+	<br>
+
+To ensure the functionality of the 4-to-1 multiplexer, a simulation is performed. Simulation is critical for verifying the logic and behavior of the VHDL design before hardware implementation. The steps involved in the simulation process are:
+
+- **Testbench Creation**: A testbench is written to apply various input values to the switches (SW) and test the corresponding outputs on the LEDs and 7-segment displays. This testbench should simulate different scenarios by toggling the selector lines (Sel(1) and Sel(0)) and observing how the multiplexer selects and outputs the appropriate value.
+
+- **Verification**: The main goal of the simulation is to verify that the correct input is selected and passed through to the output based on the values of the selection lines. For example:
+	- When Sel(1) is 0 and Sel(0) is 0, the multiplexer should select input U.
+  	- When Sel(1) is 1 and Sel(0) is 0, it should select input V, and so on.
+
+
+By simulating the VHDL code, you ensure that all possible combinations of selector lines are handled correctly and that the multiplexer performs as expected.
+
+```VHDL
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity part1_tb is
+end;
+
+architecture bench of part1_tb is
+
+  component part1 
+     PORT ( SW   : IN  STD_LOGIC_VECTOR(17 DOWNTO 0);    
+            LEDR : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);   
+  			 LEDG: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+  			 HEX7, HEX6, HEX5, HEX4, HEX0 : OUT STD_LOGIC_VECTOR(0 TO 6));
+  end component;
+
+  signal SW: STD_LOGIC_VECTOR(17 DOWNTO 0);
+  signal LEDR: STD_LOGIC_VECTOR(17 DOWNTO 0);
+  signal LEDG: STD_LOGIC_VECTOR (7 DOWNTO 0);
+  signal HEX7, HEX6, HEX5, HEX4, HEX0: STD_LOGIC_VECTOR(0 TO 6);
+
+begin
+
+  uut: part1 port map ( SW   => SW,
+                        LEDR => LEDR,
+                        LEDG => LEDG,
+                        HEX7 => HEX7,
+                        HEX6 => HEX6,
+                        HEX5 => HEX5,
+                        HEX4 => HEX4,
+                        HEX0 => HEX0 );
+
+  stimulus: process
+  begin
+    
+    SW <= "000010000100000000";  
+    wait for 10 ns;  
+
+    
+    SW <= "000100101001001001";  
+    wait for 10 ns;  
+
+    SW <= "010010010010001010";  
+    wait for 10 ns;  
+
+    SW <= "010010101001010100";  
+    wait for 10 ns;  
+
+    SW <= "100000000000001000";  
+    wait for 10 ns;  
+
+    SW <= "100000000000010000";  
+    wait for 10 ns;  
+
+    SW <= "110010100100100010";  
+    wait for 10 ns;  
+
+    
+    SW <= "110000000000111111";  
+    wait for 10 ns; 
+
+    
+    SW <= "111111111111111111";  
+    wait for 10 ns;  
+
+    wait;
+  end process;
+
+
+end;
+```
 
 </details>
+
+
 
 
 
