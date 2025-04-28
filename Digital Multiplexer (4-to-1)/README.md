@@ -12,7 +12,8 @@ The project followed a hierarchical design methodology. First, we designed 2-to-
 <details>
   <summary>PMOS, NMOS, and CMOS Transistors: Working Principles</summary>
 <br>
-
+	
+---
 In modern digital electronics, transistors play a vital role as the fundamental building blocks of all logic circuits. Among the different types of transistors, the MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor) is the most widely used due to its high switching speed and low power consumption. MOSFETs come in two main types: NMOS (N-type MOSFET) and PMOS (P-type MOSFET), each having distinct characteristics and operating principles.
 
 - **NMOS (N-type MOSFET)**: In an NMOS transistor, electrons are the majority carriers, making it faster in switching operations. The transistor is turned on (conducting state) when a high voltage (logic 1) is applied to the gate terminal relative to the source. In this state, a conductive channel forms between the drain and the source, allowing current to flow easily. When the gate voltage is low (logic 0), the NMOS transistor is in the off state, and current does not flow.
@@ -30,12 +31,14 @@ The use of CMOS technology enables the development of dense, power-efficient, an
 
 Understanding how PMOS and NMOS transistors behave individually and together in CMOS is critical to designing complex circuits like multiplexers at the transistor level.
 
+---
 </details>
 
 <details>
   <summary>Multiplexer (MUX): Definition and Function</summary>
 <br>
-
+	
+---
 A multiplexer (MUX) is a fundamental combinational logic device that selects one of several input signals and forwards the selected input to a single output line. It functions as a digital data selector, making it possible for multiple input signals to share a single communication line or resource. The selection process is controlled by selection inputs (also called control lines), and the number of these selection lines depends on the number of inputs. In general, an N-to-1 multiplexer requires log(N) selection lines. For example, a 2-to-1 multiplexer requires one select line, a 4-to-1 multiplexer requires two select lines, and an 8-to-1 multiplexer requires three select lines.
 
 In a 4-to-1 multiplexer specifically, there are four data inputs (usually labeled D0, D1, D2, and D3), two select lines (S1 and S0), and one output (Y). The select lines determine which data input is connected to the output. The functionality can be described as follows: when the select lines are set to (S1, S0) = (0, 0), the output Y will follow input D0. If the select lines are (0, 1), the output will be D1; if they are (1, 0), the output will be D2; and if they are (1, 1), the output will be D3. This mechanism allows a single output line to dynamically switch between multiple inputs based on control signals.
@@ -47,12 +50,14 @@ In a 4-to-1 multiplexer specifically, there are four data inputs (usually labele
 
 Multiplexers are essential components in digital systems and have wide applications in areas such as data routing, communication systems, arithmetic operations, and control unit design. They help to simplify circuit design by reducing the number of required components. Instead of having separate wiring for each input, a multiplexer enables efficient use of hardware resources by controlling multiple inputs through a smaller number of control lines. Their ability to selectively manage data paths makes them critical in optimizing system performance and circuit scalability in modern electronics.
 
+---
 </details>
 
 <details>
   <summary>Justification for Using 2-to-1 Inverting MUX for Designing a 4-to-1 MUX</summary>
   <br>
-
+	
+---
 Designing a 4-to-1 multiplexer directly at the transistor level can quickly become complex and inefficient, especially when working with PMOS and NMOS devices. To address this, a more organized and modular approach is to first design a 2-to-1 inverting multiplexer and then use these building blocks to construct the 4-to-1 MUX. This method not only simplifies the design process but also improves the clarity and manageability of the circuit during analysis and simulation. 
 
 The main reasons for choosing a 2-to-1 inverting MUX as the base unit include:
@@ -82,6 +87,7 @@ Further advantages of this modular design approach are:
 
 Thus, using a 2-to-1 inverting multiplexer structure provides both practical and theoretical advantages, ensuring a more successful and optimized implementation of the 4-to-1 multiplexer.
 
+---
 </details>
 
 ## Design of the 4-to-1 MUX
@@ -91,19 +97,22 @@ In digital systems, controlling the flow of data efficiently is crucial for prop
 <details>
 <summary>Concept of a 4-to-1 Multiplexer</summary>
 <br>
-
+	
+---
 A multiplexer (MUX) is a digital device that selects one input signal from several available input lines and forwards it to a single output line. It is essentially a data selector, which is useful for routing data in digital circuits. The 4-to-1 MUX specifically has four input lines, two selection lines, and one output line. The main purpose of this device is to choose one of the four inputs based on the values of the selection lines and then pass the chosen input to the output. 
 
 The operation of the 4-to-1 multiplexer is simple but very powerful. It uses two selection lines, `S1 and S0`, to determine which of the four input lines `(D0, D1, D2, D3)` should be connected to the output Y. The selection lines act like a binary control signal that picks the appropriate input. By adjusting the values of S1 and S0, the MUX can be programmed to select any one of the four inputs. For example, if `S1 = 0 and S0 = 1`, the output will be connected to `D1`.
 
 The versatility of the 4-to-1 MUX is vital in many applications, especially when it comes to controlling data flow or routing multiple signals through a single channel. It is often used in communication systems, data multiplexing, and digital circuits to manage the complexity of handling multiple signals without requiring multiple physical paths.
 
+---
 </details>
 
 <details>
   <summary>Logic Expression Derivation for 4-to-1 MUX</summary>
   <br>
-
+	
+---	
 To describe the behavior of the 4-to-1 MUX in a more formal way, we derive the logic expression for the output in terms of the selection lines and the input lines. This expression will dictate the behavior of the MUX based on the different combinations of S1 and S0. Since the MUX has four inputs, the logic expression is a combination of these inputs and the selection signals.
 
 The logic expression for the 4-to-1 multiplexer is derived from the following truth table:
@@ -121,12 +130,14 @@ This equation shows how each of the inputs (D0, D1, D2, D3) is selected based on
 
 This logic expression highlights the fact that the two selection lines control which input is passed through to the output. It is essentially a series of AND and OR operations that determine the output based on the selection of inputs.
 
+---
 </details>
 
 <details>
   <summary>Truth Table of the 4-to-1 MUX</summary>
   <br>
-
+	
+---
 The truth table of a multiplexer is a tabular representation that shows how the selection lines control the output. It is a crucial part of understanding how a digital circuit like a multiplexer behaves under different conditions. For a 4-to-1 multiplexer, the truth table lists all possible combinations of the two selection lines (S1 and S0) and the corresponding
 output for each combination.
 
@@ -147,6 +158,7 @@ This truth table clearly shows the relationship between the selection lines and 
 
 By examining this table, we can easily visualize how the selection lines determine which input is passed to the output. This is the foundation for the logic design of the multiplexer, and the truth table will be used in the implementation phase to ensure that the MUX behaves correctly.
 
+---
 </details>
 
 ## VHDL Implementation
@@ -156,7 +168,8 @@ This section presents the VHDL implementation and simulation of a 4-to-1 multipl
 <details>
   <summary>VHDL Code for the 4-to-1 Multiplexer</summary>
   <br>
-
+	
+---
 In this section, the VHDL code implements a 4-to-1 multiplexer (MUX) using two levels of 2-to-1 multiplexers (MUX1, MUX2, and MUX3), all constructed with NAND gates and NOT gates. The multiplexer selects one of four inputs based on two selection lines. Below is a breakdown of the key components:
 
 - **Entity Declaration**: The part1 entity defines the input and output ports. The input SW is an 18-bit switch vector used to control the multiplexer, and the outputs are connected to LEDs and 7-segment displays (LEDR, LEDG, HEX7, HEX6, HEX5, HEX4, HEX0).
@@ -266,12 +279,14 @@ PROCESS (INPUT)
 END Structure;
 
 ```
+---
 </details>
 
 <details>
 	<summary>Simulation and Functional Verification</summary>
 	<br>
-
+	
+ ---
 To ensure the functionality of the 4-to-1 multiplexer, a simulation is performed. Simulation is critical for verifying the logic and behavior of the VHDL design before hardware implementation. The steps involved in the simulation process are:
 
 - **Testbench Creation**: A testbench is written to apply various input values to the switches (SW) and test the corresponding outputs on the LEDs and 7-segment displays. This testbench should simulate different scenarios by toggling the selector lines (Sel(1) and Sel(0)) and observing how the multiplexer selects and outputs the appropriate value.
@@ -355,12 +370,14 @@ begin
 
 end;
 ```
+---
 </details>
 
 <details>
 	<summary>Waveform Analysis and Interpretation</summary>
 	<br>
-
+	
+ ---
 The simulation waveform obtained from ModelSim demonstrates the correct functionality of the designed 4-to-1 multi- plexer. In the waveform, several signals were monitored, including the input switches (SW), the LED indicators (LEDR), and the outputs connected to the seven-segment displays (HEX7, HEX6, HEX5, HEX4, and HEX0). Throughout the simulation, the behavior of the circuit was consistent with the expected operation of a 4-to-1 multiplexer.
 
 <div align="center">
@@ -374,12 +391,14 @@ The analysis of the waveform reveals that no glitches, undefined states, or high
 
 In conclusion, the simulation results validate the functionality of the multiplexer design. The correct selection of inputs based on the selector lines, the proper display of outputs on the seven-segment displays, and the absence of any errors during operation all confirm that the VHDL implementation is robust and operates as intended.
 
+---
 </details>
 
 <details>
 	<summary>FPGA Hardware Implementation</summary>
 	<br>
-
+	
+ ---
 After successful simulation and verification in ModelSim, the VHDL design was implemented on the DE2-115 FPGA development board. The compiled design was downloaded onto the board using the Intel Quartus Prime software. Upon programming the FPGA, the physical testing of the circuit confirmed the correct functionality of the design. 
 
 As shown in the figure, the input switches were used to select different inputs for the 4-to-1 multiplexer, and the results were displayed on the seven-segment displays. The displayed outputs correctly corresponded to the input values based on the selection lines. In particular, different combinations of the switch settings resulted in accurate updates on the seven-segment displays, confirming that the multiplexer selection and data paths were operating correctly in hardware, just as they did during simulation.
@@ -391,7 +410,9 @@ Moreover, the LEDs on the board illuminated according to the active input and ou
   <img src="Pics/22.png" style="width: 49%; height: 300px;" title="A=1011 B=0110 C=1000 D=0100 S=00" /> <img src="Pics/23.png" style="width: 49%; height: 300px;" title="A=1011 B=0110 C=1000 D=0100 S=10"/>
   <img src="Pics/24.png" style="width: 49%; height: 300px;" title="A=0011 B=1110 C=1010 D=0001 S=10" /> <img src="Pics/25.png" style="width: 49%; height: 300px;" title="A=0011 B=1110 C=1010 D=0001 S=00"/>
 </p>
- 
+
+
+ ---
 </details>
 
 ## Circuit Design
@@ -403,50 +424,62 @@ First, the full logic circuit diagram of the 4-to-1 MUX is developed by construc
 This comprehensive approach not only highlights the hierarchical design methodology but also provides deeper insight into the underlying hardware realization of digital systems.
 
 <details>
-	<summary>Full Logic Circuit Diagram Using Logic Gates</summary>
-	<br>
-
-In this project, the 4-to-1 multiplexer (MUX) is designed by using 2-to-1 multiplexer building blocks. Each 2-to-1  MUX itself is constructed solely with NAND and NOT gates. This design choice reflects a fundamental and practical approach to  digital circuit design, as NAND gates are known to be universal gates, capable of forming any logic function when combined appropriately.
+<summary>Full Logic Circuit Diagram Using Logic Gates</summary>
+<br>
+	
+---
+In this project, the 4-to-1 multiplexer (MUX) is designed by using 2-to-1 multiplexer building blocks. Each 2-to-1 MUX itself is constructed solely with NAND and NOT gates. This design choice reflects a fundamental and practical approach to digital circuit design, as NAND gates are known to be universal gates, capable of forming any logic function when combined appropriately.
 
 The basic concept of a 4-to-1 MUX is to select one of four data inputs (D0, D1, D2, D3) based on the binary values of two select inputs (S1 and S0). The selection mechanism can be thought of as a two-stage hierarchy:
 
-- **First stage**: Two 2-to-1 MUXs are used to select between pairs (I0, I1) and (I2, I3) based on the lower-order select line, S0.
+- **First stage**: Two 2-to-1 MUXes are used to select between pairs (D0, D1) and (D2, D3) based on the lower-order select line, S0.
 - **Second stage**: A final 2-to-1 MUX is used to choose between the outputs of the first stage, based on the higher-order select line, S1.
 
-Thus, only three 2-to-1 MUXs are needed to implement the 4-to-1 MUX structure. Each 2-to-1 MUX follows the basic logic:
+Thus, only three 2-to-1 MUXes are needed to implement the 4-to-1 MUX structure.
 
+Each 2-to-1 MUX follows the basic logic:
 
-$$
-Y = (\overline{S} \cdot A) + (S \cdot B)
-$$
+    Y = (NOT S AND A) OR (S AND B)  
 
 where:
 - S is the select line.
 - A and B are the two data inputs.
 - Y is the output.
 
-However, instead of using AND, OR, and NOT gates directly, the logic must be implemented only with NAND and NOT gates. Therefore, each basic logic operation (AND, OR) must be rewritten using NAND equivalents:
+Instead of using AND, OR, and NOT gates directly, the logic must be implemented only with NAND and NOT gates. Therefore, each basic logic operation (AND, OR) must be rewritten using NAND equivalents:
 
-AND is implemented as double NAND:
+**AND using NAND:**
 
-$$
-A \cdot B = \overline{\overline{A \cdot B}}
-$$
+    A AND B = NOT (NOT (A AND B))
 
-OR is implemented by DeMorgan's law using NAND:
+**OR using NAND (via DeMorgan’s law):**
 
-$$
-A + B = \overline{(\overline{A} \cdot \overline{B})}
-$$
+    A OR B = NOT (NOT A AND NOT B)
 
-NOT is implemented simply by tying both inputs of a NAND gate together. Using these transformations, each 2-to-1 multiplexer is carefully reconstructed using only NAND and NOT gates. At the full circuit level, the diagram shows:
+**NOT using NAND:**
+
+    NOT A = A NAND A
+
+At the full circuit level, the diagram shows:
 
 - Two 2-to-1 NAND-based multiplexers taking inputs (D0, D1) and (D2, D3) selected by S0.
 - Their outputs feeding into a third 2-to-1 NAND-based multiplexer controlled by S1.
 - The final output Y representing the selected input according to the two select lines.
 
 This approach not only satisfies the project constraints but also trains the designer to think flexibly using universal gates. The following photo shows the Gate-level implementation of the 4-to-1 multiplexer, constructed entirely using NAND and NOT gates.
- 
+
+<p align="center">
+  <img src="Pics/6.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0" /> <img src="Pics/11.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=1"/>  
+</p>
+
+Now, using this 2-to-1 multiplexer design, we can construct the 4-to-1 multiplexer entirely by combining the 2-to-1 MUX blocks in a hierarchical manner. This 4-to-1 MUX is built with only NAND and NOT gates by connecting three 2-to-1 MUXes, which were designed earlier using the same gate types. The first stage of the design selects between two pairs of inputs (D0, D1) and (D2, D3), while the second stage selects between the results of the first stage based on the higher-order select line (S1). In this way, the entire 4-to-1 MUX functionality is achieved using only NAND and NOT gates.
+
+<p align="center">
+  <img src="Pics/7.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=1 S=11" /> <img src="Pics/8.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=00"/>
+  <img src="Pics/9.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=01" /> <img src="Pics/10.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=11"/>  
+</p>
+
+---
 </details>
 
 
