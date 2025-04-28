@@ -12,7 +12,7 @@ For this project, we selected the DE1-115 FPGA development board from Intel (for
 Below is a photo of the DE1-115 FPGA board used in our project:
 
 <div align="center">
-  <img src="Photos/DE-115.png" alt="Digital Multiplexer Diagram" width="1050" height="600">
+  <img src="Photos/DE-115.png" alt="DE-115" width="1050" height="600">
 </div>
 <br>
 
@@ -23,7 +23,7 @@ The DE1-115 board's rich feature set was crucial to the success of our work. It 
 In order to develop, simulate, and program our designs onto the DE1-115 FPGA board, we used Intel Quartus Prime software. Quartus Prime is a comprehensive FPGA design environment that provides all the necessary tools for hardware description language (HDL) design, synthesis, simulation, timing analysis, and programming. It supports both VHDL and Verilog designs, offering powerful features like schematic entry, IP integration, and real-time compilation feedback. Using Quartus, we were able to write, compile, simulate, and debug our HDL code, and then configure the DE1-115 board directly through the programming tool. The software also allowed us to easily manage pin assignments and monitor resource usage, which helped optimize our design for the FPGA’s capabilities.
 
 <div align="center">
-  <img src="Photos/Quartus.png" alt="Digital Multiplexer Diagram" width="1050" height="500">
+  <img src="Photos/Quartus.png" alt="Intel Quartus Prime" width="1050" height="500">
 </div>
 <br>
 
@@ -34,7 +34,7 @@ Using Intel Quartus Prime was critical to the success of our project. It provide
 As part of the project, we also used NI Multisim software to design and simulate circuits at the transistor level before implementing them on the FPGA. Multisim is a powerful electronic schematic capture and simulation environment widely used for designing, analyzing, and validating analog, digital, and mixed-signal circuits. It provides a comprehensive library of real-world components, including BJTs, MOSFETs, diodes, and passive elements, enabling us to build accurate transistor-level models of the circuits we planned to implement. Through Multisim’s simulation capabilities, we were able to verify the behavior of our designs, measure critical parameters, and optimize the circuits before moving to hardware implementation. This step was essential to ensure functionality and performance while minimizing errors during the FPGA programming phase.
 
 <div align="center">
-  <img src="Photos/Multisim.png" alt="Digital Multiplexer Diagram" width="1050" height="500">
+  <img src="Photos/Multisim.png" alt="NI Multisim 14.3" width="1050" height="500">
 </div>
 <br>
 
