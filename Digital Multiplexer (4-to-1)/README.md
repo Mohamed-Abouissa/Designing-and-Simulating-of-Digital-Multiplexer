@@ -464,7 +464,9 @@ At the full circuit level, the diagram shows:
 - Their outputs feeding into a third 2-to-1 NAND-based multiplexer controlled by S1.
 - The final output Y representing the selected input according to the two select lines.
 
-This approach not only satisfies the project constraints but also trains the designer to think flexibly using universal gates. The following photo shows the Gate-level implementation of the 4-to-1 multiplexer, constructed entirely using NAND and NOT gates.
+This approach not only satisfies the project constraints but also trains the designer to think flexibly using universal gates. 
+
+**The following photo shows the Gate-level implementation of the 4-to-1 multiplexer, constructed entirely using NAND and NOT gates.**
 
 <p align="center">
   <img src="Pics/6.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0" /> <img src="Pics/11.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=1"/>  
@@ -476,7 +478,44 @@ Now, using this 2-to-1 multiplexer design, we can construct the 4-to-1 multiplex
   <img src="Pics/7.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=1 S=11" /> <img src="Pics/8.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=00"/>
   <img src="Pics/9.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=01" /> <img src="Pics/10.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=11"/>  
 </p>
+---
+</details>
 
+<details>
+<summary>Transistor-Level Implementation Diagram</summary>
+<br>
+
+ ---
+The transistor-level implementation of the 4-to-1 multiplexer (MUX) is based on the previously designed 2-to-1 MUX, which utilizes only **NAND** and **NOT** gates. To achieve the full functionality of the 4-to-1 MUX, the logic gates used in the 2-to-1 MUX must be translated into **PMOS** and **NMOS** transistors, which form the core of CMOS logic.
+
+1. **NAND Gate Construction:**
+   - A **NAND gate** is constructed using **two PMOS transistors** connected in parallel and **two NMOS transistors** connected in series. This arrangement ensures that the output is low (0) only when both inputs are high (1).
+   
+   - When both inputs are low, the PMOS transistors conduct, pulling the output high (1). This configuration is efficient for minimizing power consumption while performing logical operations.
+
+2. **NOT Gate Construction:**
+   - The **NOT gate** is implemented by tying both inputs of a **NAND gate** together. This configuration ensures that when the input is high, the output is low, and when the input is low, the output is high - effectively inverting the signal.
+
+3. **2-to-1 MUX Construction:**
+   - The 2-to-1 MUX is built using the combination of NAND gates and NOT gates. The select line \( S \) is connected to the control inputs of the NAND gates. The data inputs \( A \) and \( B \) are connected to the transistors in the appropriate logic configuration, allowing the multiplexing operation to be performed.
+
+4. **4-to-1 MUX Transistor-Level Design:**
+   - The 4-to-1 MUX is constructed by combining three 2-to-1 MUXes in a hierarchical structure, as discussed earlier in Section 4.1.
+
+   - The first two 2-to-1 MUXes select between the pairs of inputs (D0, D1) and (D2, D3) based on the select line \( S_0 \). These are implemented with **NAND** gates and **NOT** gates, following the transistor level logic described above.
+
+   - The output from the first two MUXes is then fed into a third 2-to-1 MUX, which is controlled by the higher-order select line \( S_1 \).
+
+   - At this level, each 2-to-1 MUX involves several **PMOS** and **NMOS** transistors arranged in a specific way to carry out the NAND logic operations, ensuring that the desired output is selected based on the state of the select lines \( S_0 \) and \( S_1 \).
+
+The resulting transistor-level diagram of the 2-to-1 and 4-to-1 multiplexer consists of multiple transistors arranged to perform the necessary logic functions. This diagram provides a detailed and accurate representation of how the logic gates are implemented at the transistor level, giving insight into the actual hardware design of the MUX.
+
+**(The following photo shows the transistor-level implementation of the 4-to-1 multiplexer, constructed entirely using NAND and NOT gates.)**
+
+<p align="center">
+  <img src="Pics/12.png" style="width: 49%; height: 300px;" title="A=0 B=0 S=0 (2-to-1 MUX)" /> <img src="Pics/13.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0 (2-to-1 MUX)"/>
+  <img src="Pics/14.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=0 S=10 (4-to-1 MUX)" /> <img src="Pics/15.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=0 S=11 (4-to-1 MUX)"/>  
+</p>
 ---
 </details>
 
