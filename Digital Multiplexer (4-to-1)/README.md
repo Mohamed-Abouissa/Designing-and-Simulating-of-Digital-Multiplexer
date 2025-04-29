@@ -603,12 +603,14 @@ Thus, the complete 4-to-1 multiplexer implementation uses a total of 42 transist
 Given that each NAND and NOT gate contains an equal number of PMOS and NMOS transistors, the division between PMOS and NMOS transistors is straightforward. Each NAND gate uses 2 PMOS and 2 NMOS transistors, while each NOT gate uses 1 PMOS and 1 NMOS transistor.
 
 For a single 2-to-1 multiplexer:
-- PMOS count = (3 × 2) + (1 × 1) = 7 PMOS transistors.
-- NMOS count = (3 × 2) + (1 × 1) = 7 NMOS transistors.
+
+    PMOS count = (3 × 2) + (1 × 1) = 7 PMOS transistors.
+    NMOS count = (3 × 2) + (1 × 1) = 7 NMOS transistors.
 
 Therefore, for three 2-to-1 multiplexers used in the 4-to-1 design:
-- PMOS count = 3 × 7 = 21 PMOS transistors.
-- NMOS count = 3 × 7 = 21 NMOS transistors.
+
+    PMOS count = 3 × 7 = 21 PMOS transistors.
+    NMOS count = 3 × 7 = 21 NMOS transistors.
 
 In conclusion, the 4-to-1 multiplexer is built using 21 PMOS transistors and 21 NMOS transistors, resulting in a total of 42 transistors.
 
