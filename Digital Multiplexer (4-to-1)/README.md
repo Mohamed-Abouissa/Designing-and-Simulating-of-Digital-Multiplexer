@@ -653,6 +653,7 @@ Although the current design is functional and efficient, there is room for furth
 Another possible improvement is to minimize the number of stages or gates to reduce the overall propagation delay. Using transmission gates or multiplexers built with pass-transistor logic could be another alternative in advanced designs to reduce transistor count and power.
 
 Finally, implementing a layout design (physical structure) and testing the design under various load conditions would provide deeper insight into the real-world behavior of the MUX.
+
 ---
 </details>
 
