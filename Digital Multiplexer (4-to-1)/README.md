@@ -3,11 +3,15 @@
 # Designing and Simulating of Digital Multiplexer (4-to-1)
 </div>
 
+<p align="justify">
 This project focuses on the design, simulation, and implementation of a 4-to-1 digital multiplexer using 2-to-1 inverting multiplexers constructed from PMOS and NMOS transistors. A multiplexer (MUX) is a fundamental combinational logic circuit commonly used in digital systems to select one of several input signals and route it to a single output line based on control inputs. Understanding and building multiplexers is essential for developing more complex digital systems such as processors, communication devices, and embedded controllers.
-
+</p>
+<p align="justify">
 To achieve a complete understanding of the multiplexer’s behavior, we designed the transistor-level circuit using Multisim software. This allowed us to visualize and simulate the behavior of the system at the CMOS transistor level, gaining insight into how logical operations are physically realized in hardware. After verifying the transistor-level design, we transitioned to implementing the system using VHDL (VHSIC Hardware Description Language) and tested it on the DE2-115 FPGA development board. This part of the project focused on writing structured VHDL code, creating testbenches for simulation, and finally uploading the design to the board for real-world verification using switches, LEDs, and seven-segment displays.
-
+</p>
+<p align="justify">
 The project followed a hierarchical design methodology. First, we designed 2-to-1 inverting multiplexers, and then we combined them to build the full 4-to-1 multiplexer system. Throughout the project, special attention was paid to both the logic behavior and the hardware efficiency of the design. Simulation waveforms were analyzed to validate functionality across all input combinations, ensuring the design met the intended logic before hardware testing. Overall, this project provided valuable hands-on experience in transistor-level CMOS design, digital logic synthesis using VHDL, simulation analysis, and FPGA-based circuit implementation, strengthening both theoretical knowledge and practical skills essential for digital systems engineering.
+</p>
 
 <details>
 <summary>PMOS, NMOS, and CMOS Transistors: Working Principles</summary>
@@ -16,13 +20,14 @@ The project followed a hierarchical design methodology. First, we designed 2-to-
 ---
 In modern digital electronics, transistors play a vital role as the fundamental building blocks of all logic circuits. Among the different types of transistors, the MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor) is the most widely used due to its high switching speed and low power consumption. MOSFETs come in two main types: NMOS (N-type MOSFET) and PMOS (P-type MOSFET), each having distinct characteristics and operating principles.
 
-- **NMOS (N-type MOSFET)**: In an NMOS transistor, electrons are the majority carriers, making it faster in switching operations. The transistor is turned on (conducting state) when a high voltage (logic 1) is applied to the gate terminal relative to the source. In this state, a conductive channel forms between the drain and the source, allowing current to flow easily. When the gate voltage is low (logic 0), the NMOS transistor is in the off state, and current does not flow.
+- **NMOS (N-type MOSFET):** In an NMOS transistor, electrons are the majority carriers, making it faster in switching operations. The transistor is turned on (conducting state) when a high voltage (logic 1) is applied to the gate terminal relative to the source. In this state, a conductive channel forms between the drain and the source, allowing current to flow easily. When the gate voltage is low (logic 0), the NMOS transistor is in the off state, and current does not flow.
 
-- **PMOS (P-type MOSFET)**: In contrast, a PMOS transistor operates with holes as the majority carriers. A PMOS transistor is turned on when a low voltage (logic 0) is applied to the gate terminal relative to the source, creating a conductive channel. When a high voltage (logic 1) is applied to the gate, the PMOS device switches off. PMOS transistors typically have slower mobility compared to NMOS, leading to slower switching speeds, but they offer benefits like lower leakage currents.
+- **PMOS (P-type MOSFET):** In contrast, a PMOS transistor operates with holes as the majority carriers. A PMOS transistor is turned on when a low voltage (logic 0) is applied to the gate terminal relative to the source, creating a conductive channel. When a high voltage (logic 1) is applied to the gate, the PMOS device switches off. PMOS transistors typically have slower mobility compared to NMOS, leading to slower switching speeds, but they offer benefits like lower leakage currents.
 
-- **CMOS (Complementary MOS)**: CMOS technology integrates both NMOS and PMOS transistors to build efficient logic gates. In a CMOS circuit, when one transistor (either PMOS or NMOS) is on, the other is off. This complementary behavior results in very low static power consumption because current only flows during switching transitions, not in a steady state.
+- **CMOS (Complementary MOS):** CMOS technology integrates both NMOS and PMOS transistors to build efficient logic gates. In a CMOS circuit, when one transistor (either PMOS or NMOS) is on, the other is off. This complementary behavior results in very low static power consumption because current only flows during switching transitions, not in a steady state.
 
 The use of CMOS technology enables the development of dense, power-efficient, and highly reliable digital circuits. CMOS forms the backbone of modern microprocessors, memory chips, and virtually all integrated circuits used today.
+
 
 <div align="center">
   <img src="Pics/2.png" alt="PMOS, NMOS, and CMOS" width="1050" height="500">
@@ -92,7 +97,9 @@ Thus, using a 2-to-1 inverting multiplexer structure provides both practical and
 
 ## Design of the 4-to-1 MUX
 
+<p align="justify">
 In digital systems, controlling the flow of data efficiently is crucial for proper operation and performance. One of the essential devices used to achieve this control is the multiplexer (MUX). A multiplexer selects one of several input signals and forwards it to a single output line, based on specific control inputs known as selection lines. In this section, we focus on the design and operation of a 4-to-1 multiplexer (4-to-1 MUX), which handles four input signals using two selection lines. We will discuss the concept of the 4-to-1 MUX, derive its logic expression, and present its corresponding truth table to provide a comprehensive understanding of its functionality and role in digital circuit design.
+</p>
 
 <details>
 <summary>Concept of a 4-to-1 Multiplexer</summary>
@@ -161,7 +168,9 @@ By examining this table, we can easily visualize how the selection lines determi
 
 ## VHDL Implementation
 
+<p align="justify">
 This section presents the VHDL implementation and simulation of a 4-to-1 multiplexer built using basic logic gates. The design emphasizes modular construction by combining two levels of 2-to-1 multiplexers, each created with NAND and NOT gates, to achieve the desired 4-to-1 selection functionality. The VHDL code defines the system structure, input/output behavior, and integration with 7-segment displays for visual verification. Additionally, a simulation is performed using a testbench to validate the functionality of the multiplexer under different input and selection conditions. This comprehensive implementation demonstrates both the theoretical design and practical verification of digital logic circuits using VHDL.
+</p>
 
 <details>
   <summary>VHDL Code for the 4-to-1 Multiplexer</summary>
@@ -415,11 +424,15 @@ Moreover, the LEDs on the board illuminated according to the active input and ou
 
 ## Circuit Design
 
+<p align="justify">
 In this section, the complete design process of a 4-to-1 multiplexer (MUX) is presented, starting from the logic gate level and extending to the transistor level. The goal is to demonstrate how a complex digital component like a multiplexer can be systematically built using only basic logic elements, specifically NAND and NOT gates, which are fundamental in digital electronics.
-
+</p>
+<p align="justify">
 First, the full logic circuit diagram of the 4-to-1 MUX is developed by constructing 2-to-1 multiplexers with NAND and NOT gates, showcasing how universal gates can be employed to realize any digital function. Following this, the design is refined further by translating the logic gates into detailed CMOS transistor-level circuits using PMOS and NMOS transistors.
-
+</p>
+<p align="justify">
 This comprehensive approach not only highlights the hierarchical design methodology but also provides deeper insight into the underlying hardware realization of digital systems.
+</p>
 
 <details>
 <summary>Full Logic Circuit Diagram Using Logic Gates</summary>
@@ -523,9 +536,12 @@ The resulting transistor-level diagram of the 2-to-1 and 4-to-1 multiplexer cons
 
 ## Transistor-Level Analysis
 
+<p align="justify">
 Understanding the operation of multiplexers at the transistor level provides critical insight into how digital logic is physically implemented in hardware. Instead of treating logic gates as abstract black boxes, this section explores how basic components-PMOS and NMOS transistors-are combined to create functional logic circuits like NAND and NOT gates, which in turn are used to build a 2-to-1 multiplexer (MUX).
-
+</p>
+<p align="justify">
 In this section, we first analyze the transistor-level operation of a 2-to-1 MUX, detailing how the select line controls the flow of data between the inputs and output by switching specific transistors on or off. We then examine the output behavior relative to different input combinations and visualize how the circuit responds under various conditions through a series of transistor-level diagrams. This foundation lays the groundwork for constructing larger and more complex multiplexers, such as the 4-to-1 MUX, by combining multiple 2-to-1 MUX structures.
+</p>
 
 <details>
 <summary>Transistor-Level Operation of a 2-to-1 MUX</summary>
@@ -573,7 +589,9 @@ Each of these photos shows the corresponding transistor-level operation and veri
 
 ## Transistor Count Calculation</summary>
 
+<p align="justify">
 As part of analyzing the efficiency and feasibility of our digital circuit design, it is essential to quantify the hardware resources required. One fundamental metric is the transistor count, which directly reflects the complexity, area, and potentially the power consumption of the circuit. In this section, we provide a detailed breakdown of the total number of transistors used in the implementation of a 4-to-1 multiplexer. The calculation is based on the logic gate composition of the multiplexer, with a focus on how NAND and NOT gates contribute to the overall transistor requirements. We also separate the counts of PMOS and NMOS transistors to offer a clearer understanding of the CMOS-based implementation.
+</p>
 
 <details>
 <summary>Total Number of Transistors</summary>
@@ -619,7 +637,9 @@ In conclusion, the 4-to-1 multiplexer is built using 21 PMOS transistors and 21 
 
 ## Discussion & Conclusion
 
+<p align="justify">
 This section reflects on the overall design process, highlights the strengths of the chosen implementation strategy, and evaluates the challenges encountered during development. Additionally, we propose several avenues for optimization and enhancement based on our experience with the transistor-level design of the 4-to-1 multiplexer. By examining both the successes and limitations of the current approach, we aim to provide a balanced assessment and outline potential improvements for future implementations.
+</p>
 
 <details>
 <summary>Design Approach and Advantages</summary>
