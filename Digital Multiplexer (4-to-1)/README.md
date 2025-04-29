@@ -514,8 +514,8 @@ The resulting transistor-level diagram of the 2-to-1 and 4-to-1 multiplexer cons
 **(The following photo shows the transistor-level implementation of the 4-to-1 multiplexer, constructed entirely using NAND and NOT gates.)**
 
 <p align="center">
-  <img src="Pics/12.png" style="width: 49%; height: 300px;" title="A=0 B=0 S=0 (2-to-1 MUX)" /> <img src="Pics/13.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0 (2-to-1 MUX)"/>
-  <img src="Pics/14.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=0 S=10 (4-to-1 MUX)" /> <img src="Pics/15.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=0 S=11 (4-to-1 MUX)"/>  
+  <img src="Pics/28.png" style="width: 49%; height: 300px;" title="A=0 B=0 C=0 D=0 S=00 (4-to-1 MUX)" /> <img src="Pics/29.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=0 S=00 (4-to-1 MUX)"/>
+  <img src="Pics/30.png" style="width: 49%; height: 300px;" title="A=0 B=1 C=0 D=0 S=01 (4-to-1 MUX)" /> <img src="Pics/31.png" style="width: 49%; height: 300px;" title="A=0 B=1 C=0 D=1 S=11 (4-to-1 MUX)"/>  
 </p>
 
 ---
@@ -561,7 +561,7 @@ To visually demonstrate this behavior, I have included four photos, each represe
 - Case 4: S = 1, D0 = 1, D1 = 1
 
 <p align="center">
-  <img src="Pics/16.png" style="width: 49%; height: 300px;" title="A=0 B=0 S=0 (2-to-1 MUX)" /> <img src="Pics/17.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0 (2-to-1 MUX)"/>
+  <img src="Pics/26.png" style="width: 49%; height: 300px;" title="A=0 B=0 S=0 (2-to-1 MUX)" /> <img src="Pics/27.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0 (2-to-1 MUX)"/>
   <img src="Pics/18.png" style="width: 49%; height: 300px;" title="A=0 B=1 S=1 (2-to-1 MUX)" /> <img src="Pics/19.png" style="width: 49%; height: 300px;" title="A=1 B=1 S=1 (2-to-1 MUX)"/>  
 </p>
 
