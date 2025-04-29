@@ -659,7 +659,7 @@ Finally, implementing a layout design (physical structure) and testing the desig
 
 ## Resources
 
-[1] **M. Morris Mano. *Digital Design*, 5th Edition.**
+[1] **M. Morris Mano. *Digital Design*, 5th Edition**.   
 [2] **All About Circuits - MOSFET Types**.  
 https://www.allaboutcircuits.com/textbook/semiconductors/  
 [3] **GeeksforGeeks - Multiplexer in Digital Logic**.  
