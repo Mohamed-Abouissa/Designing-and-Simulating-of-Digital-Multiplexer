@@ -625,5 +625,36 @@ This section reflects on the overall design process, highlights the strengths of
 
 ---
 In this project, we successfully designed a 4-to-1 digital multiplexer using only 2-to-1 inverting multiplexers, NAND gates, and NOT gates. The idea was to construct a larger MUX structure by systematically connecting smaller and simpler MUX units. We focused entirely on basic gates (NAND and NOT) because they are universal and can implement any logic function. Using NAND gates at the transistor level is efficient since they require fewer transistors compared to implementing more complex gates directly. This approach results in a structured, modular, and scalable design, making it easier to analyze and optimize.
+
+One significant advantage of this method is that the design can be easily expanded. For example, by using the same technique, we could build even larger multiplexers (such as 8-to-1 MUX) by properly combining more 2-to-1 blocks. Additionally, implementing the design using only NAND and NOT gates makes it highly suitable for standard CMOS fabrication techniques, where NAND gates are often optimized for performance and area.
+
+---
 </details>
+
+<details>
+<summary>Challenges Faced During Design and Implementation</summary>
+<br>
+
+---
+Throughout the project, several challenges were encountered. One major challenge was ensuring the correct behavior of the selection signals after inversion, especially when simulating at the transistor level. Extra care had to be taken to properly connect the inverted and non-inverted signals to the NAND gates to achieve the desired MUX functionality.
+
+Another challenge was managing the transistor-level design in the simulation environment. Building NAND and NOT gates manually from PMOS and NMOS transistors required precision to maintain correct logic levels, especially when scaling up from a single 2-to-1 MUX to a complete 4-to-1 MUX. Troubleshooting logic errors and voltage drops in the transistor-level circuit also required careful analysis.
+
+---
+</details>
+
+<details>
+<summary>Suggestions for Optimization and Improvement</summary>
+<br>
+
+---
+Although the current design is functional and efficient, there is room for further optimization. One suggestion would be to optimize the transistor sizing (W/L ratio) for faster switching and lower power consumption. In real hardware design, adjusting the PMOS and NMOS sizes improves performance significantly.
+
+Another possible improvement is to minimize the number of stages or gates to reduce the overall propagation delay. Using transmission gates or multiplexers built with pass-transistor logic could be another alternative in advanced designs to reduce transistor count and power.
+
+Finally, implementing a layout design (physical structure) and testing the design under various load conditions would provide deeper insight into the real-world behavior of the MUX.
+---
+</details>
+
+## 
 
