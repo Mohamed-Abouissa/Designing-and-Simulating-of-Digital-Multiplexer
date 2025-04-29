@@ -567,5 +567,63 @@ To visually demonstrate this behavior, I have included four photos, each represe
 
 Each of these photos shows the corresponding transistor-level operation and verifies how the select line (S) controls which data input (D0 or D1) is passed to the output. This transistor-level analysis ensures that the 2-to-1 MUX operates as intended, passing one of the two data inputs to the output based on the select line. By understanding the operation of the 2-to-1 MUX at the transistor level, we can extend this design to build more complex multiplexers, such as the 4-to-1 MUX, by cascading multiple 2-to-1 MUXes.
 
-
+---
 </details>
+
+
+## Transistor Count Calculation</summary>
+
+As part of analyzing the efficiency and feasibility of our digital circuit design, it is essential to quantify the hardware resources required. One fundamental metric is the transistor count, which directly reflects the complexity, area, and potentially the power consumption of the circuit. In this section, we provide a detailed breakdown of the total number of transistors used in the implementation of a 4-to-1 multiplexer. The calculation is based on the logic gate composition of the multiplexer, with a focus on how NAND and NOT gates contribute to the overall transistor requirements. We also separate the counts of PMOS and NMOS transistors to offer a clearer understanding of the CMOS-based implementation.
+
+<details>
+<summary>Total Number of Transistors</summary>
+<br>
+
+---
+In order to evaluate the complexity of the 4-to-1 multiplexer design, we must first calculate the total number of transistors used. Our design approach is based on constructing the 4-to-1 multiplexer by using 2-to-1 multiplexers, and each 2-to-1 MUX is built solely using NAND and NOT gates.
+
+Each 2-to-1 multiplexer in the design requires three NAND gates and one NOT gate. At the transistor level, each NAND gate requires 4 transistors (2 PMOS and 2 NMOS), while each NOT gate requires 2 transistors (1 PMOS and 1 NMOS). Therefore, the total number of transistors needed for one 2-to-1 multiplexer is calculated as follows:
+
+    (3 × 4) + (1 × 2) = 12 + 2 = 14 transistors.
+
+Since a 4-to-1 multiplexer is constructed by combining three 2-to-1 multiplexers (two in the first stage and one in the second stage), the overall transistor count becomes:
+
+    (3 × 14) = 42 transistors.
+
+Thus, the complete 4-to-1 multiplexer implementation uses a total of 42 transistors.
+
+---
+</details>
+
+<details>
+<summary>Breakdown of PMOS and NMOS Transistor Count</summary>
+<br>
+
+---
+Given that each NAND and NOT gate contains an equal number of PMOS and NMOS transistors, the division between PMOS and NMOS transistors is straightforward. Each NAND gate uses 2 PMOS and 2 NMOS transistors, while each NOT gate uses 1 PMOS and 1 NMOS transistor.
+
+For a single 2-to-1 multiplexer:
+- PMOS count = (3 × 2) + (1 × 1) = 7 PMOS transistors.
+- NMOS count = (3 × 2) + (1 × 1) = 7 NMOS transistors.
+
+Therefore, for three 2-to-1 multiplexers used in the 4-to-1 design:
+- PMOS count = 3 × 7 = 21 PMOS transistors.
+- NMOS count = 3 × 7 = 21 NMOS transistors.
+
+In conclusion, the 4-to-1 multiplexer is built using 21 PMOS transistors and 21 NMOS transistors, resulting in a total of 42 transistors.
+
+---
+</details>
+
+## Discussion & Conclusion
+
+This section reflects on the overall design process, highlights the strengths of the chosen implementation strategy, and evaluates the challenges encountered during development. Additionally, we propose several avenues for optimization and enhancement based on our experience with the transistor-level design of the 4-to-1 multiplexer. By examining both the successes and limitations of the current approach, we aim to provide a balanced assessment and outline potential improvements for future implementations.
+
+<details>
+<summary>Design Approach and Advantages</summary>
+<br>
+
+---
+In this project, we successfully designed a 4-to-1 digital multiplexer using only 2-to-1 inverting multiplexers, NAND gates, and NOT gates. The idea was to construct a larger MUX structure by systematically connecting smaller and simpler MUX units. We focused entirely on basic gates (NAND and NOT) because they are universal and can implement any logic function. Using NAND gates at the transistor level is efficient since they require fewer transistors compared to implementing more complex gates directly. This approach results in a structured, modular, and scalable design, making it easier to analyze and optimize.
+</details>
+
