@@ -9,7 +9,10 @@ To achieve a complete understanding of the multiplexer’s behavior, we designed
 
 The project followed a hierarchical design methodology. First, we designed 2-to-1 inverting multiplexers, and then we combined them to build the full 4-to-1 multiplexer system. Throughout the project, special attention was paid to both the logic behavior and the hardware efficiency of the design. Simulation waveforms were analyzed to validate functionality across all input combinations, ensuring the design met the intended logic before hardware testing. Overall, this project provided valuable hands-on experience in transistor-level CMOS design, digital logic synthesis using VHDL, simulation analysis, and FPGA-based circuit implementation, strengthening both theoretical knowledge and practical skills essential for digital systems engineering.
 
-### PMOS, NMOS, and CMOS Transistors: Working Principles
+<details>
+<summary>PMOS, NMOS, and CMOS Transistors: Working Principles</summary>
+<br>
+	
 ---
 In modern digital electronics, transistors play a vital role as the fundamental building blocks of all logic circuits. Among the different types of transistors, the MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor) is the most widely used due to its high switching speed and low power consumption. MOSFETs come in two main types: NMOS (N-type MOSFET) and PMOS (P-type MOSFET), each having distinct characteristics and operating principles.
 
@@ -28,7 +31,13 @@ The use of CMOS technology enables the development of dense, power-efficient, an
 
 Understanding how PMOS and NMOS transistors behave individually and together in CMOS is critical to designing complex circuits like multiplexers at the transistor level.
 
-### Multiplexer (MUX): Definition and Function	
+---
+</details>
+
+<details>
+<summary>Multiplexer (MUX): Definition and Function</summary>
+<br>
+	
 ---
 A multiplexer (MUX) is a fundamental combinational logic device that selects one of several input signals and forwards the selected input to a single output line. It functions as a digital data selector, making it possible for multiple input signals to share a single communication line or resource. The selection process is controlled by selection inputs (also called control lines), and the number of these selection lines depends on the number of inputs. In general, an N-to-1 multiplexer requires log(N) selection lines. For example, a 2-to-1 multiplexer requires one select line, a 4-to-1 multiplexer requires two select lines, and an 8-to-1 multiplexer requires three select lines.
 
@@ -41,7 +50,13 @@ In a 4-to-1 multiplexer specifically, there are four data inputs (usually labele
 
 Multiplexers are essential components in digital systems and have wide applications in areas such as data routing, communication systems, arithmetic operations, and control unit design. They help to simplify circuit design by reducing the number of required components. Instead of having separate wiring for each input, a multiplexer enables efficient use of hardware resources by controlling multiple inputs through a smaller number of control lines. Their ability to selectively manage data paths makes them critical in optimizing system performance and circuit scalability in modern electronics.
 
-### Justification for Using 2-to-1 Inverting MUX for Designing a 4-to-1 MUX	
+---
+</details>
+
+<details>
+<summary>Justification for Using 2-to-1 Inverting MUX for Designing a 4-to-1 MUX</summary>
+<br>
+	
 ---
 Designing a 4-to-1 multiplexer directly at the transistor level can quickly become complex and inefficient, especially when working with PMOS and NMOS devices. To address this, a more organized and modular approach is to first design a 2-to-1 inverting multiplexer and then use these building blocks to construct the 4-to-1 MUX. This method not only simplifies the design process but also improves the clarity and manageability of the circuit during analysis and simulation. 
 
@@ -71,6 +86,9 @@ Further advantages of this modular design approach are:
 - Better Performance Control: The designer can better control signal delays, loading effects, and switching behavior by analyzing each stage separately.
 
 Thus, using a 2-to-1 inverting multiplexer structure provides both practical and theoretical advantages, ensuring a more successful and optimized implementation of the 4-to-1 multiplexer.
+
+---
+</details>
 
 ## Design of the 4-to-1 MUX
 
