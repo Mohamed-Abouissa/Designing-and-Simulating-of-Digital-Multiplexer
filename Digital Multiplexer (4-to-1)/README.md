@@ -656,5 +656,21 @@ Finally, implementing a layout design (physical structure) and testing the desig
 ---
 </details>
 
-## 
+## Resources
+
+[1] M. Morris Mano. *Digital Design*, 5th Edition.  
+[2] **All About Circuits - MOSFET Types**.  
+https://www.allaboutcircuits.com/textbook/semiconductors/  
+[3] **GeeksforGeeks - Multiplexer in Digital Logic**.  
+https://www.geeksforgeeks.org/multiplexers-in-digital-logic/  
+[4] **Neso Academy - Multiplexer Design Explanation**.  
+https://www.nesoacademy.org/ec/05-digital-electronics/07-combinational-circuits/24-4x1-multiplexer  
+[5] **NI Multisim - Official Product Page**.  
+https://www.ni.com/en-us/shop/electronic-test-instrumentation/application-software-for-electronic-test-and-instrumentation-category/what-is-multisim.html  
+[6] **Intel Quartus Prime Software - FPGA Development Tools**.  
+https://www.intel.com/content/www/us/en/software/programmable/quartus-prime/overview.html  
+[7] **Terasic DE2-115 (similar to DE-125) FPGA Board Resources**.  
+https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=12&No=502  
+[8] **VHDL Testbench Creation Using Perl. (n.d.). Retrieved September 21, 2024**.  
+https://www.doulos.com/knowhow/perl/vhdl-testbench-creation-using-perl/  
 
