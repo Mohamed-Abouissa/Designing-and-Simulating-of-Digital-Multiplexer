@@ -673,6 +673,3 @@ https://www.intel.com/content/www/us/en/software/programmable/quartus-prime/over
 https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=12&No=502  
 [8] **VHDL Testbench Creation Using Perl. (n.d.). Retrieved September 21, 2024**.  
 https://www.doulos.com/knowhow/perl/vhdl-testbench-creation-using-perl/  
-
-This publication adheres to all regulatory laws and guidelines established by the [American University of Ras Al Khaimah (AURAK)](https://aurak.ac.ae/) regarding the dissemination of academic materials.
-
