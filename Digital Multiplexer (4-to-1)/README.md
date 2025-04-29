@@ -562,7 +562,7 @@ To visually demonstrate this behavior, I have included four photos, each represe
 
 <p align="center">
   <img src="Pics/26.png" style="width: 49%; height: 300px;" title="A=0 B=0 S=0 (2-to-1 MUX)" /> <img src="Pics/27.png" style="width: 49%; height: 300px;" title="A=1 B=0 S=0 (2-to-1 MUX)"/>
-  <img src="Pics/18.png" style="width: 49%; height: 300px;" title="A=0 B=1 S=1 (2-to-1 MUX)" /> <img src="Pics/19.png" style="width: 49%; height: 300px;" title="A=1 B=1 S=1 (2-to-1 MUX)"/>  
+  <img src="Pics/32.png" style="width: 49%; height: 300px;" title="A=0 B=1 S=1 (2-to-1 MUX)" /> <img src="Pics/33.png" style="width: 49%; height: 300px;" title="A=1 B=1 S=1 (2-to-1 MUX)"/>  
 </p>
 
 Each of these photos shows the corresponding transistor-level operation and verifies how the select line (S) controls which data input (D0 or D1) is passed to the output. This transistor-level analysis ensures that the 2-to-1 MUX operates as intended, passing one of the two data inputs to the output based on the select line. By understanding the operation of the 2-to-1 MUX at the transistor level, we can extend this design to build more complex multiplexers, such as the 4-to-1 MUX, by cascading multiple 2-to-1 MUXes.
