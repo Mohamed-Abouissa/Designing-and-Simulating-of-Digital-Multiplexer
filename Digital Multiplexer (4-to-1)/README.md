@@ -475,8 +475,8 @@ This approach not only satisfies the project constraints but also trains the des
 Now, using this 2-to-1 multiplexer design, we can construct the 4-to-1 multiplexer entirely by combining the 2-to-1 MUX blocks in a hierarchical manner. This 4-to-1 MUX is built with only NAND and NOT gates by connecting three 2-to-1 MUXes, which were designed earlier using the same gate types. The first stage of the design selects between two pairs of inputs (D0, D1) and (D2, D3), while the second stage selects between the results of the first stage based on the higher-order select line (S1). In this way, the entire 4-to-1 MUX functionality is achieved using only NAND and NOT gates.
 
 <p align="center">
-  <img src="Pics/7.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=1 S=11" /> <img src="Pics/8.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=00"/>
-  <img src="Pics/9.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=01" /> <img src="Pics/10.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=11"/>  
+  <img src="Pics/36.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=1 D=1 S=11" /> <img src="Pics/37.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=00"/>
+  <img src="Pics/38.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=01" /> <img src="Pics/39.png" style="width: 49%; height: 300px;" title="A=1 B=0 C=0 D=1 S=11"/>  
 </p>
 
 ---
